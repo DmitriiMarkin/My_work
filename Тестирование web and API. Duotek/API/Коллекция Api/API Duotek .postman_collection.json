@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "98ae8c98-ae76-4b5e-81cd-a2d9bcc689bc",
+		"name": "API Duotek ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Авторизация",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"qa.71450784@duotek.ru\",\n    \"password\":\"71450784\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api-test.duotek.ru/self/login",
+					"protocol": "http",
+					"host": [
+						"api-test",
+						"duotek",
+						"ru"
+					],
+					"path": [
+						"self",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Список справочников",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api-test.duotek.ru/definitions-qa",
+					"protocol": "http",
+					"host": [
+						"api-test",
+						"duotek",
+						"ru"
+					],
+					"path": [
+						"definitions-qa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание тикета",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 290|DCrWkObnYbvBzM1Ovq3pdLJbajmN2pAXajwgbSsQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Дмитрий\",\n    \"phone\": \"9252967861\",\n    \"body\": \"Тест\",\n    \"company_id\": 6,\n    \"ticketTypes\": [\"HELP\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api-test.duotek.ru/tickets/create",
+					"protocol": "http",
+					"host": [
+						"api-test",
+						"duotek",
+						"ru"
+					],
+					"path": [
+						"tickets",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Просмотр тикета",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 290|DCrWkObnYbvBzM1Ovq3pdLJbajmN2pAXajwgbSsQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"2799\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api-test.duotek.ru/tickets/info?id=1",
+					"protocol": "http",
+					"host": [
+						"api-test",
+						"duotek",
+						"ru"
+					],
+					"path": [
+						"tickets",
+						"info"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
